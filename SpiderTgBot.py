@@ -1,8 +1,16 @@
 ﻿# -*- coding: utf-8 -*-
+import os
+from dotenv import load_dotenv
 import telebot
 
+# Загружаем переменные из .env
+load_dotenv()
+
+# Получаем токен из переменной окружения
+bot_token = os.getenv("BOT_TOKEN")
+
 # Инициализируем бота
-bot = telebot.TeleBot("")
+bot = telebot.TeleBot(bot_token)
 
 @bot.message_handler(commands=['чай'])
 def send_tea_animation(message):
